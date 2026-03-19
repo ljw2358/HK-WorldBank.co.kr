@@ -3,37 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HK-WorldBank | Global Consensus Value</title>
+    <title>HK WORLD BANK | GLOBAL FUTURE TECHNOLOGY & FINANCE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        body { background-color: #000814; color: #e0f7ff; font-family: 'Malgun Gothic', sans-serif; text-align: center; padding-top: 10vh; margin: 0; }
-        .card { border: 2px solid #00d4ff; display: inline-block; padding: 50px 70px; border-radius: 35px; background: linear-gradient(145deg, #001a33, #000); box-shadow: 0 0 60px rgba(0, 212, 255, 0.3); }
-        h1 { color: #00d4ff; letter-spacing: 8px; font-size: 3.2rem; margin-bottom: 5px; text-shadow: 0 0 20px #00d4ff; }
-        .sub-title { color: #88aaff; font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 40px; }
-        .gcv-display { background: rgba(0, 40, 80, 0.5); padding: 30px; border-radius: 20px; border: 1px solid #005580; margin-bottom: 40px; }
-        .label { color: #00ffcc; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; }
-        .price { font-size: 3.5rem; color: #ffffff; font-weight: bold; margin: 10px 0; text-shadow: 0 0 15px #fff; }
-        .btn-main { display: block; padding: 20px; background: #00d4ff; color: #000; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.3rem; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
-        .btn-main:hover { background: #00ffcc; transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0,255,204,0.4); }
-        .footer { margin-top: 50px; color: #446688; font-size: 0.9rem; }
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #b8860b;
+            --black: #000000;
+            --deep-gray: #0d0d0d;
+            --light-gray: #e0e0e0;
+            --accent: #ffd700;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            font-family: 'Noto Sans KR', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* 배경 우주 애니메이션 효과 */
+        .stars-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, #111 0%, #000 100%);
+            z-index: -2;
+        }
+
+        /* 언어 선택: 우측 상단 고정 */
+        .lang-nav {
+            position: fixed; top: 20px; right: 30px; z-index: 2000;
+            display: flex; gap: 10px; align-items: center;
+        }
+        .lang-nav select {
+            background: rgba(0,0,0,0.7); color: var(--gold);
+            border: 1px solid var(--gold); padding: 5px 12px;
+            font-size: 12px; border-radius: 4px; cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* 헤더 섹션 */
+        header {
+            height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .main-logo {
+            font-family: 'Orbitron', sans-serif; font-size: 5rem;
+            color: var(--gold); letter-spacing: 15px; font-weight: 900;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+            margin-bottom: 20px;
+        }
+        .main-sub {
+            font-size: 1.8rem; color: var(--light-gray);
+            letter-spacing: 3px; margin-bottom: 50px; font-weight: 300;
+        }
+
+        /* 소셜 미디어 아이콘 영역 */
+        .social-container {
+            display: flex; gap: 30px; margin-bottom: 30px;
+        }
+        .social-link {
+            font-size: 2.5rem; color: var(--gold); text-decoration: none;
+            transition: all 0.4s;
+        }
+        .social-link:hover {
+            color: var(--white); transform: scale(1.2) translateY(-10px);
+            text-shadow: 0 0 15px var(--gold);
+        }
+
+        /* 사업 영역 상세 (여기가 핵심!) */
+        .section-title {
+            text-align: center; color: var(--gold); font-family: 'Orbitron', sans-serif;
+            font-size: 3rem; margin: 100px 0 50px; letter-spacing: 5px;
+        }
+        .grid-detail {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px; padding: 0 8% 100px;
+        }
+        .detail-card {
+            background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+            border: 1px solid #222; padding: 50px; border-radius: 20px;
+            transition: 0.5s; position: relative; overflow: hidden;
+        }
+        .detail-card:hover {
+            border-color: var(--gold); transform: translateY(-15px);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.15);
+        }
+        .detail-card i {
+            font-size: 3.5rem; color: var(--gold); margin-bottom: 25px;
+        }
+        .detail-card h3 {
+            color: var(--gold); font-size: 1.8rem; margin-bottom: 20px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        .detail-card p {
+            color: #999; font-size: 1.1rem; line-height: 1.8;
+        }
+
+        /* 공식 이메일 배너 */
+        .contact-banner {
+            background: var(--deep-gray); padding: 80px 5%;
+            text-align: center; border-top: 1px solid #222;
+        }
+        .email-text {
+            font-size: 2.5rem; color: var(--gold); font-family: 'Orbitron', sans-serif;
+            margin-bottom: 20px;
+        }
+        .email-link {
+            font-size: 1.8rem; color: var(--white); text-decoration: none;
+            border-bottom: 2px solid var(--gold); padding-bottom: 5px;
+        }
+
+        /* 푸터 */
+        footer {
+            padding: 50px 5%; text-align: center; background: #000;
+            color: #444; font-size: 0.9rem;
+        }
+
+        /* 반응형 모바일 */
+        @media (max-width: 768px) {
+            .main-logo { font-size: 2.5rem; letter-spacing: 5px; }
+            .main-sub { font-size: 1.1rem; }
+            .section-title { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>HK-WorldBank</h1>
-        <div class="sub-title">GLOBAL FINANCIAL ECOSYSTEM</div>
-        
-        <div class="gcv-display">
-            <div class="label">Target Consensus Value</div>
-            <div class="price">$314,159</div>
-            <div style="color: #00ffcc; font-size: 0.8rem;">REAL-TIME NODE SYNCED</div>
-        </div>
 
-        <a href="#" class="btn-main">DOWNLOAD HKWB WALLET (APK)</a>
-        
-        <div style="margin-top: 30px;">
-            <a href="https://github.com/ljw2358/HK-Holdings.com" style="color: #00d4ff; text-decoration: none; font-size: 0.8rem;">Main Holdings Center →</a>
-        </div>
+<div class="stars-bg"></div>
+
+<nav class="lang-nav">
+    <i class="fas fa-globe" style="color: var(--gold); font-size: 14px;"></i>
+    <select id="langSelect" onchange="updateContent()">
+        <option value="ko">KOREAN</option>
+        <option value="en">ENGLISH</option>
+        <option value="zh">CHINESE</option>
+        <option value="ja">JAPANESE</option>
+        <option value="vi">VIETNAMESE</option>
+    </select>
+</nav>
+
+<header>
+    <h1 class="main-logo" id="headerTitle">HK WORLD BANK</h1>
+    <p class="main-sub" id="headerSub">Physical AI • Space • Fusion • Global Finance</p>
+    
+    <div class="social-container">
+        <a href="#" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-link" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="mailto:info@hkwb.co.kr" class="social-link" title="Email"><i class="fas fa-envelope-open-text"></i></a>
     </div>
-    <div class="footer">Official inquiries: <strong>info@hkwb.co.kr</strong></div>
+    
+    <a href="#vision" style="color: var(--gold); text-decoration: none; font-size: 1rem; border: 1px solid var(--gold); padding: 12px 30px; border-radius: 50px;">EXPLORE EMPIRE</a>
+</header>
+
+<div id="vision">
+    <h2 class="section-title">GLOBAL DIVISIONS</h2>
+    <section class="grid-detail">
+        <div class="detail-card">
+            <i class="fas fa-robot"></i>
+            <h3 id="t1">Physical AI & Robotics</h3>
+            <p id="p1">울산-경주 클러스터를 중심으로 한 휴머노이드 로봇 생산 및 인공지능 제조 혁명. 인간의 노동을 자유롭게 하는 육체적 AI의 탄생.</p>
+        </div>
+        <div class="detail-card">
+            <i class="fas fa-user-astronaut"></i>
+            <h3 id="t2">Space Infrastructure</h3>
+            <p id="p2">지구 저궤도 위성 통신망 및 달 기지 건설을 위한 금융 인프라 구축. 인류의 영토를 우주로 확장하는 거대 프로젝트 지원.</p>
+        </div>
+        <div class="detail-card">
+            <i class="fas fa-atom"></i>
+            <h3 id="t3">Fusion Energy</h3>
+            <p id="p3">인공 태양이라 불리는 핵융합 에너지 상용화를 통한 에너지 무한 공급. 탄소 배출 없는 미래를 위한 깨끗하고 강력한 동력원.</p>
+        </div>
+        <div class="detail-card">
+            <i class="fas fa-microchip"></i>
+            <h3 id="t4">Quantum Computing</h3>
+            <p id="p4">기존 컴퓨터의 한계를 넘는 양자 연산을 통한 초고속 데이터 처리 및 차세대 금융 암호 보안 시스템 구축.</p>
+        </div>
+        <div class="detail-card">
+            <i class="fas fa-dna"></i>
+            <h3 id="t5">Bio-Manufacturing</h3>
+            <p id="p5">인류의 수명 연장과 질병 정복을 위한 첨단 바이오 제조 및 줄기세포 기술 연구 기반 금융 지원.</p>
+        </div>
+        <div class="detail-card">
+            <i class="fas fa-university"></i>
+            <h3 id="t6">Future Foundation</h3>
+            <p id="p6">기술 혁신의 이익을 전 인류와 공유하기 위한 보편적 기본 소득 지원 및 취약 계층 교육을 위한 글로벌 재단 운영.</p>
+        </div>
+    </section>
+</div>
+
+<section class="contact-banner">
+    <div class="email-text">GLOBAL HEADQUARTERS</div>
+    <a href="mailto:info@hkwb.co.kr" class="email-link">info@hkwb.co.kr</a>
+    <p style="margin-top: 30px; color: #666;">Contact us for strategic partnerships and investment consortia.</p>
+</section>
+
+<footer>
+    <p>© 2026 HK GROUP. Founder & Chairman Lee Jaewan. All Rights Reserved.</p>
+    <p style="margin-top: 10px;">HQ: Ulsan, South Korea | Global Branch: Pi Network Ecosystem</p>
+</footer>
+
+<script>
+    function updateContent() {
+        const lang = document.getElementById('langSelect').value;
+        const contents = {
+            ko: {
+                hSub: "인공지능 • 우주 • 핵융합 • 글로벌 금융",
+                t1: "Physical AI & 로보틱스", p1: "휴머노이드 로봇 및 자율 생산 인프라 구축을 통한 제조 혁명.",
+                t2: "우주 인프라", p2: "우주 경제 시대를 여는 위성 및 금융 네트워크 구축.",
+                t3: "핵융합 에너지", p3: "무한한 깨끗한 에너지 공급을 위한 차세대 핵융합 기술 지원.",
+                t6: "미래 재단", p6: "범지구적 기본 소득 지원 및 기술 이익 공유 재단."
+            },
+            en: {
+                hSub: "Physical AI • Space • Fusion • Finance",
+                t1: "Physical AI & Robotics", p1: "Revolutionizing manufacturing through humanoids and autonomous infra.",
+                t2: "Space Infrastructure", p2: "Building satellite networks and finance for the space economy.",
+                t3: "Fusion Energy", p3: "Supporting next-gen fusion technology for infinite clean energy.",
+                t6: "Future Foundation", p6: "Global UBI and sharing technological benefits with humanity."
+            },
+            zh: {
+                hSub: "人工智能 • 太空 • 核聚变 • 全球金融",
+                t1: "物理 AI 与机器人", p1: "通过人形机器人和自主基础设施彻底改变制造业。",
+                t2: "太空基础设施", p2: "为太空经济建设卫星网络和金融体系。",
+                t3: "核聚变能源", p3: "支持下一代核聚变技术，实现无限清洁能源。",
+                t6: "未来基金会", p6: "全球基本收入支持及技术利益共享。"
+            },
+            ja: {
+                hSub: "AI • 宇宙 • 核融合 • グローバル金融",
+                t1: "フィジカルAI & ロボティクス", p1: "ヒューマノイドと自律型インフラによる製造革命。",
+                t2: "宇宙インフラ", p2: "宇宙経済のための衛星ネットワークと金融インフラの構築。",
+                t3: "核融合エネルギー", p3: "次世代核融合技術による無限のクリーンエネルギー支援。",
+                t6: "未来財団", p6: "普遍的ベーシックインカム支援と技術利益の共有。"
+            },
+            vi: {
+                hSub: "AI • Vũ trụ • Năng lượng • Tài chính",
+                t1: "AI vật lý & Robot", p1: "Cách mạng hóa sản xuất thông qua robot nhân hình và hạ tầng tự trị.",
+                t2: "Hạ tầng vũ trụ", p2: "Xây dựng mạng lưới vệ tinh và tài chính cho kinh tế vũ trụ.",
+                t3: "Năng lượng hạt nhân", p3: "Hỗ trợ công nghệ nhiệt hạch cho nguồn năng lượng sạch vô hạn.",
+                t6: "Quỹ tương lai", p6: "Hỗ trợ thu nhập cơ bản toàn cầu và chia sẻ lợi ích công nghệ."
+            }
+        };
+
+        const c = contents[lang];
+        document.getElementById('headerSub').innerText = c.hSub;
+        document.getElementById('t1').innerText = c.t1; document.getElementById('p1').innerText = c.p1;
+        document.getElementById('t2').innerText = c.t2; document.getElementById('p2').innerText = c.p2;
+        document.getElementById('t3').innerText = c.t3; document.getElementById('p3').innerText = c.p3;
+        document.getElementById('t6').innerText = c.t6; document.getElementById('p6').innerText = c.p6;
+    }
+</script>
+
 </body>
 </html>
